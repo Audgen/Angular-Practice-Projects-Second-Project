@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-address-card',
@@ -8,18 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class AddressCardComponent implements OnInit {
 
   user: any;
+  @Input('name') userName: string = "No Name";
  
   constructor() { 
+ 
+  }
+
+  ngOnInit() {
 
     this.user = {
-      name: 'Foo bar',
+      name: this.userName,
       title: 'Software Developer',
       address: '1234 N Main St, City, State, Zip',
       phone: ['234-098-7368','652-098-2651','123-456-7890']
       };
-  }
 
-  ngOnInit() {
   }
 
 }
